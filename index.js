@@ -1,5 +1,6 @@
 const canvas = document.getElementById("art");
 const ctx = canvas.getContext("2d");
+const outOfCanvas = document.querySelector(".container");
 
 function getMousePos(e) {
   const rect = canvas.getBoundingClientRect();
@@ -13,8 +14,8 @@ function mouseMove(e) {
   const mousePos = getMousePos(e);
   ctx.lineTo(mousePos.x, mousePos.y);
   ctx.stroke();
-  ctx.strokeStyle = "salmon";
-  ctx.lineWidth = "15";
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = "10";
 }
 
 canvas.addEventListener("mousedown", (e) => {
@@ -27,4 +28,16 @@ canvas.addEventListener("mousedown", (e) => {
 
 reset.addEventListener("click", () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+outOfCanvas.addEventListener("mousemove", (e) => {
+  const mousePos = getMousePos(e);
+  if (
+    mousePos.x < 0 ||
+    mousePos.x > canvas.width ||
+    mousePos.y > canvas.height ||
+    mousePos.y < 0
+  ) {
+    canvas.removeEventListener("mousemove", mouseMove);
+  }
 });
