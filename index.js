@@ -1,7 +1,13 @@
 const canvas = document.getElementById("art");
 const ctx = canvas.getContext("2d");
 
-// Fonction getMousePos -> pour connaitre la position de la souris
+function getMousePos(e) {
+  const rect = canvas.getBoundingClientRect();
+  return {
+    x: e.clientX - rect.left,
+    y: e.clientY - rect.top,
+  };
+}
 
 // Fonction mouseMove -> pour dessiner quand on bouge la souris
 
