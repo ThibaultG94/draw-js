@@ -17,6 +17,11 @@ function mouseMove(e) {
   ctx.lineWidth = "15";
 }
 
-// addEventListener -> canvas
-
+canvas.addEventListener("mousedown", (e) => {
+  ctx.beginPath();
+  canvas.addEventListener("mousemove", mouseMove);
+  canvas.addEventListener("mouseup", () => {
+    canvas.removeEventListener("mousemove", mouseMove);
+  });
+});
 // addEventListener -> reset
