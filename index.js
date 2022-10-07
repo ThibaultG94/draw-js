@@ -1,4 +1,5 @@
-// On pointe le canvas et on créer ctx
+const canvas = document.getElementById("art");
+const ctx = canvas.getContext("2d");
 
 // Fonction getMousePos -> pour connaitre la position de la souris
 
