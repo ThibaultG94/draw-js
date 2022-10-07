@@ -2,6 +2,10 @@ const canvas = document.getElementById("art");
 const ctx = canvas.getContext("2d");
 const outOfCanvas = document.querySelector(".container");
 
+//--------
+//  CANVAS
+//--------
+
 function getMousePos(e) {
   const rect = canvas.getBoundingClientRect();
   return {
@@ -26,10 +30,6 @@ canvas.addEventListener("mousedown", (e) => {
   });
 });
 
-reset.addEventListener("click", () => {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-});
-
 outOfCanvas.addEventListener("mousemove", (e) => {
   const mousePos = getMousePos(e);
   if (
@@ -40,4 +40,30 @@ outOfCanvas.addEventListener("mousemove", (e) => {
   ) {
     canvas.removeEventListener("mousemove", mouseMove);
   }
+});
+
+//--------
+// BUTTONS
+//--------
+let click = false;
+const allColors = document.querySelectorAll("li");
+
+reset.addEventListener("click", () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+color.addEventListener("click", () => {
+  if (click) {
+    colors.style.display = "none";
+    colors.style.opacity = "0";
+    click = false;
+  } else {
+    colors.style.display = "block";
+    colors.style.opacity = "1";
+    click = true;
+  }
+});
+
+allColors.forEach((color) => {
+  color.style.background = color.id;
 });
