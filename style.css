@@ -1,11 +1,41 @@
-canvas {
-  border: 1px solid #000;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 body {
   cursor: crosshair;
+  background-color: rgb(175, 244, 244);
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+canvas {
+  border: 3px solid #000;
+  background: rgb(250, 250, 250);
+  margin-bottom: 30px;
+}
+
 #reset {
-  margin-top: 10px;
-  margin-left: 5px;
-  float: left;
+  padding: 5px 10px;
+  background-color: rgb(244, 244, 175);
+  border: 2px solid black;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+#reset:hover {
+  transform: translateX(3px);
+  background-color: rgb(244, 175, 244);
+  box-shadow: 0.1px 0.1px 0.1px 0.1px rgb(75, 75, 75);
 }
