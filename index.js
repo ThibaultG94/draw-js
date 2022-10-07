@@ -24,4 +24,7 @@ canvas.addEventListener("mousedown", (e) => {
     canvas.removeEventListener("mousemove", mouseMove);
   });
 });
-// addEventListener -> reset
+
+reset.addEventListener("click", () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
