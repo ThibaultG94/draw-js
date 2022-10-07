@@ -9,7 +9,13 @@ function getMousePos(e) {
   };
 }
 
-// Fonction mouseMove -> pour dessiner quand on bouge la souris
+function mouseMove(e) {
+  const mousePos = getMousePos(e);
+  ctx.lineTo(mousePos.x, mousePos.y);
+  ctx.stroke();
+  ctx.strokeStyle = "salmon";
+  ctx.lineWidth = "15";
+}
 
 // addEventListener -> canvas
 
