@@ -48,22 +48,27 @@ outOfCanvas.addEventListener("mousemove", (e) => {
 let click = false;
 const allColors = document.querySelectorAll("li");
 
+function colorsAttribute() {
+  allColors.forEach((color) => {
+    color.style.background = color.id;
+    color.style.color = color.id;
+  });
+}
+
+colorsAttribute();
+
 reset.addEventListener("click", () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
 color.addEventListener("click", () => {
   if (click) {
-    colors.style.display = "none";
     colors.style.opacity = "0";
+    // color.style.height = "0";
     click = false;
   } else {
-    colors.style.display = "block";
     colors.style.opacity = "1";
+    // color.style.height = "33px";
     click = true;
   }
-});
-
-allColors.forEach((color) => {
-  color.style.background = color.id;
 });
