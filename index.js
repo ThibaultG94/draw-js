@@ -1,6 +1,7 @@
 const canvas = document.getElementById("art");
 const ctx = canvas.getContext("2d");
 const outOfCanvas = document.querySelector(".container");
+let currentColor = black;
 
 //--------
 //  CANVAS
@@ -18,7 +19,7 @@ function mouseMove(e) {
   const mousePos = getMousePos(e);
   ctx.lineTo(mousePos.x, mousePos.y);
   ctx.stroke();
-  ctx.strokeStyle = "black";
+  ctx.strokeStyle = currentColor;
   ctx.lineWidth = "10";
 }
 
@@ -84,4 +85,10 @@ color.addEventListener("click", () => {
     });
     click = true;
   }
+});
+
+allColors.forEach((color) => {
+  color.addEventListener("click", () => {
+    currentColor = color.id;
+  });
 });
