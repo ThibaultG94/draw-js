@@ -2,6 +2,7 @@ const canvas = document.getElementById("art");
 const ctx = canvas.getContext("2d");
 const outOfCanvas = document.querySelector(".container");
 let currentColor = black;
+let currentWidth = inputRange.value;
 
 //--------
 //  CANVAS
@@ -20,7 +21,7 @@ function mouseMove(e) {
   ctx.lineTo(mousePos.x, mousePos.y);
   ctx.stroke();
   ctx.strokeStyle = currentColor;
-  ctx.lineWidth = "10";
+  ctx.lineWidth = currentWidth;
 }
 
 canvas.addEventListener("mousedown", (e) => {
@@ -69,6 +70,7 @@ color.addEventListener("click", () => {
   if (click) {
     allColors.forEach((color) => {
       color.style.height = "0";
+      color.style.transition = "none";
     });
     colors.style.opacity = "0";
     click = false;
@@ -91,4 +93,8 @@ allColors.forEach((color) => {
   color.addEventListener("click", () => {
     currentColor = color.id;
   });
+});
+
+inputRange.addEventListener("input", () => {
+  currentWidth = inputRange.value;
 });
