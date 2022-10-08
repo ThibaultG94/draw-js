@@ -49,9 +49,12 @@ let click = false;
 const allColors = document.querySelectorAll("li");
 
 function colorsAttribute() {
+  let index = 0;
   allColors.forEach((color) => {
     color.style.background = color.id;
     color.style.color = color.id;
+    color.style.transition = `all 0.3s ease-in-out ${index}00ms`;
+    index++;
   });
 }
 
@@ -63,12 +66,22 @@ reset.addEventListener("click", () => {
 
 color.addEventListener("click", () => {
   if (click) {
+    allColors.forEach((color) => {
+      color.style.height = "0";
+    });
     colors.style.opacity = "0";
-    // color.style.height = "0";
     click = false;
+    setTimeout(() => {
+      colors.style.display = "none";
+    }, 1);
   } else {
-    colors.style.opacity = "1";
-    // color.style.height = "33px";
+    colors.style.display = "block";
+    setTimeout(() => {
+      colors.style.opacity = "1";
+      allColors.forEach((color) => {
+        color.style.height = "33px";
+      }, 1);
+    });
     click = true;
   }
 });
