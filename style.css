@@ -7,21 +7,22 @@
 }
 
 body {
-  cursor: crosshair;
   background-color: rgb(175, 244, 244);
 }
 
 .container {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
-  min-height: 100vh;
+  padding-top: 100px;
+  /* min-height: 100vh; */
 }
 
 canvas {
   border: 3px solid #000;
   background: rgb(250, 250, 250);
   margin: 0 20px;
+  cursor: crosshair;
 }
 
 .button-container {
@@ -40,6 +41,7 @@ canvas {
   font-size: 1.5rem;
   cursor: pointer;
   margin-bottom: 10px;
+  max-height: 50px;
 }
 
 .btn:hover {
